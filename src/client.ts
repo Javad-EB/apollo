@@ -6,13 +6,14 @@ const delay = setContext(
   request =>
     new Promise((success, fail) => {
       setTimeout(() => {
-        success({ character: "async found character" })
+        success({ book: "async found book" })
       }, 800)
     })
 )
 const cache = new InMemoryCache()
 const http = new HttpLink({
-uri: 'https://rickandmortyapi.com/graphql'  
+// uri: 'https://rickandmortyapi.com/graphql'  
+uri: 'http://localhost:4000/'
 })
 const link = ApolloLink.from([
   delay,
